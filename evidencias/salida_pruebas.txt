@@ -1,0 +1,30 @@
+PRUEBA DE PERSISTENCIA - CORTE VERTICAL SEMANA 13
+Base de datos: C:\Users\user\Downloads\esta es la teare\corte_vertical_sem13\evidencias\prueba.db
+Python: 3.12.10 | SQLite: 3.49.1
+==============================================================================
+[PASA] 1. Crear una ficha en un refugio verificado y recuperarla desde una conexión nueva
+       id=7, estado=disponible, fotos=2, refugio=Refugio Patitas
+[PASA] 2. Rechazar la creación de una ficha si el refugio no está verificado
+       ERR-009: el refugio 2 no está verificado y no puede publicar fichas; filas antes=7, después=7
+[PASA] 3. Rechazar datos inválidos y no persistirlos
+       ERR-004: especie debe ser perro o gato; filas antes=7, después=7
+[PASA] 4. Consultar un identificador inexistente y obtener None
+       obtener_por_id(99999) -> None
+[PASA] 5. Verificar la restricción de integridad referencial (FK refugio_id)
+       sqlite3.IntegrityError: FOREIGN KEY constraint failed
+[PASA] 6. Guardar una ficha sin fotos como incompleta y excluirla del catálogo
+       id=8, estado=incompleta, catálogo=[1, 3, 2, 7]
+[PASA] 7. Catálogo: solo disponibles de refugios verificados, orden y filtros
+       total=4, orden=[1, 3, 2, 7], perros=3, pequenos=1, pagina2=1
+[PASA] 8. Actualizar una ficha incompleta, publicarla y luego darla de baja
+       incompleta -> disponible -> baja; excluida del catálogo
+[PASA] 9. Rechazar más de 5 fotografías (validación y trigger de base)
+       repositorio: ERR-004: una ficha admite como máximo 5 fotografías; trigger: MAX_FOTOS: una ficha admite maximo 5 fotografias
+[PASA] 10. Verificar triggers de publicación (refugio no verificado y ficha sin foto)
+       refugio pendiente: REFUGIO_NO_VERIFICADO: el refugio debe estar verificado | ficha sin foto: FICHA_INCOMPLETA: se requiere al menos una fotografia
+[PASA] 11. Verificar que el catálogo no expone datos personales (RNF-04)
+       catálogo: 11 claves; ficha: 20 claves; 0 campos personales
+[PASA] 12. Medir 20 consultas consecutivas al catálogo
+       n=20, mínimo=0.49 ms, promedio=0.53 ms, máximo=0.66 ms
+------------------------------------------------------------------------------
+RESUMEN: 12/12 pruebas pasaron

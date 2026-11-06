@@ -1,0 +1,85 @@
+﻿CAT├üLOGO FILTRADO POR especie=perro
+{
+  "total": 3,
+  "pagina": 1,
+  "porPagina": 20,
+  "mascotas": [
+    {
+      "id": 1,
+      "nombre": "Luna",
+      "especie": "perro",
+      "edad_meses": 30,
+      "tamano": "grande",
+      "nivel_energia": "alta",
+      "fecha_publicacion": "2026-10-01",
+      "refugio_id": 1,
+      "refugio_nombre": "Refugio Patitas",
+      "refugio_localidad": "ENGATIVA",
+      "foto_principal": "luna_01.jpg"
+    },
+    {
+      "id": 3,
+      "nombre": "Rocky",
+      "especie": "perro",
+      "edad_meses": 60,
+      "tamano": "mediano",
+      "nivel_energia": "alta",
+      "fecha_publicacion": "2026-10-03",
+      "refugio_id": 1,
+      "refugio_nombre": "Refugio Patitas",
+      "refugio_localidad": "ENGATIVA",
+      "foto_principal": "rocky_01.jpg"
+    },
+    {
+      "id": 7,
+      "nombre": "Nala",
+      "especie": "perro",
+      "edad_meses": 24,
+      "tamano": "mediano",
+      "nivel_energia": "media",
+      "fecha_publicacion": "2026-10-10",
+      "refugio_id": 1,
+      "refugio_nombre": "Refugio Patitas",
+      "refugio_localidad": "ENGATIVA",
+      "foto_principal": "nala_01.jpg"
+    }
+  ]
+}
+
+FICHA 1 RECUPERADA POR ID (con conexi├│n nueva)
+{
+  "id": 1,
+  "refugio_id": 1,
+  "nombre": "Luna",
+  "raza": "Mestiza",
+  "especie": "perro",
+  "edad_meses": 30,
+  "tamano": "grande",
+  "nivel_energia": "alta",
+  "experiencia_requerida": "basica",
+  "apta_con_menores": true,
+  "apta_con_mascotas": true,
+  "historial_salud": "Vacunas al d├¡a",
+  "historial_comportamiento": "Sociable",
+  "estado": "disponible",
+  "fecha_publicacion": "2026-10-01",
+  "creado_en": "2026-11-05 01:49:05",
+  "refugio_nombre": "Refugio Patitas",
+  "refugio_localidad": "ENGATIVA",
+  "refugio_estado": "verificado",
+  "fotografias": [
+    {
+      "id": 1,
+      "archivo": "luna_01.jpg",
+      "orden": 1
+    },
+    {
+      "id": 2,
+      "archivo": "luna_02.jpg",
+      "orden": 2
+    }
+  ]
+}
+
+FICHA INEXISTENTE 99999
+None

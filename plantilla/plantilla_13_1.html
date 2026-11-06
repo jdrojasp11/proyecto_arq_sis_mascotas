@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Plantilla 13.1 — Corte vertical Semana 13</title>
+<style>
+  @page {
+    size: A4;
+    margin: 15mm 14mm 15mm 14mm;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-size: 9.3pt;
+    line-height: 1.34;
+    color: #1f2937;
+    margin: 0;
+  }
+  h1 {
+    font-size: 21pt;
+    line-height: 1.1;
+    margin: 2mm 0 1.5mm 0;
+    color: #0f3d4a;
+    letter-spacing: -0.2pt;
+  }
+  h2 {
+    font-size: 12.5pt;
+    color: #0f4c5c;
+    margin: 5mm 0 2mm 0;
+    padding-bottom: 1.2mm;
+    border-bottom: 1.6pt solid #0f4c5c;
+  }
+  h3 {
+    font-size: 10pt;
+    color: #0f4c5c;
+    margin: 3.5mm 0 1.2mm 0;
+  }
+  p { margin: 0 0 2mm 0; }
+  ul, ol { margin: 0 0 2mm 0; padding-left: 5mm; }
+  li { margin: 0 0 0.8mm 0; }
+  .kicker {
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 1.1pt;
+    text-transform: uppercase;
+    color: #2a7f8f;
+  }
+  .subtitle {
+    font-size: 12pt;
+    color: #334155;
+    margin: 0 0 4mm 0;
+  }
+  .cover {
+    border-top: 5pt solid #0f4c5c;
+    padding-top: 5mm;
+  }
+  .meta {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4mm 0 0 0;
+    font-size: 8.8pt;
+  }
+  .meta td {
+    border: none;
+    border-top: 0.5pt solid #d7e1e5;
+    padding: 1.6mm 0;
+    background: transparent !important;
+  }
+  .meta td:first-child {
+    width: 26%;
+    color: #64748b;
+    font-weight: 600;
+  }
+  .badge {
+    display: inline-block;
+    background: #e6f4ea;
+    color: #17663a;
+    border: 0.7pt solid #9fd3ae;
+    border-radius: 3pt;
+    padding: 1mm 2.4mm;
+    font-size: 8.2pt;
+    font-weight: 700;
+  }
+  .note {
+    background: #f1f7f8;
+    border-left: 3pt solid #2a7f8f;
+    padding: 2.2mm 3mm;
+    font-size: 8.5pt;
+    color: #334155;
+    margin: 2.5mm 0 3mm 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5mm 0 3mm 0;
+    font-size: 8.25pt;
+  }
+  table.tight { font-size: 7.9pt; }
+  table.tight td, table.tight th { padding: 1.25mm 1.7mm; }
+  th {
+    background: #0f4c5c;
+    color: #ffffff;
+    text-align: left;
+    padding: 1.7mm 1.8mm;
+    border: 0.6pt solid #0f4c5c;
+    font-size: 8.1pt;
+    font-weight: 700;
+  }
+  td {
+    border: 0.5pt solid #cbd5e1;
+    padding: 1.6mm 1.8mm;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #f8fafb; }
+  .label {
+    width: 25%;
+    font-weight: 700;
+    color: #0f3d4a;
+    background: #e9f2f3 !important;
+  }
+  .center { text-align: center; }
+  .small { font-size: 7.7pt; color: #475569; }
+  .nowrap { white-space: nowrap; }
+  .pass { color: #17663a; font-weight: 700; }
+  .pending { color: #9a5b00; font-weight: 700; }
+  .partial { color: #7a4b00; font-weight: 700; }
+  .page-break { page-break-before: always; }
+  .avoid { page-break-inside: avoid; }
+  .code {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 7.6pt;
+    background: #f5f7f9;
+    border: 0.5pt solid #d7dee5;
+    padding: 2mm 2.5mm;
+    white-space: pre-wrap;
+    line-height: 1.3;
+  }
+  .two-col {
+    display: flex;
+    gap: 4mm;
+  }
+  .two-col > div { flex: 1; }
+  .footer-note {
+    margin-top: 4mm;
+    padding-top: 1.5mm;
+    border-top: 0.5pt solid #cbd5e1;
+    font-size: 7.4pt;
+    color: #64748b;
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="kicker">Arquitectura de Sistemas I · Semana 13 · Universidad Central</div>
+  <h1>Plantilla diligenciada — Sección 13.1</h1>
+  <div class="subtitle">Base de datos y persistencia del corte vertical</div>
+  <table class="meta">
+    <tr><td>Proyecto</td><td>Sistema de Apoyo a la Decisión para la Adopción Responsable de Mascotas mediante Inteligencia Artificial</td></tr>
+    <tr><td>Docente</td><td>Elias Buitrago Bolivar</td></tr>
+    <tr><td>Fecha</td><td>4 de noviembre de 2026</td></tr>
+    <tr><td>Integrantes</td><td>Equipo de trabajo (completar nombres en la portada antes de cargar)</td></tr>
+    <tr><td>Estado</td><td><span class="badge">12 / 12 pruebas de persistencia superadas</span></td></tr>
+  </table>
+</div>
+
+<div class="note">
+  <strong>Alcance de esta plantilla.</strong> Se diligencian los campos de la sección 13.1
+  «Plantilla de alcance del corte vertical» y se anexa la ficha RF–RNF de la guía de la
+  semana 13. Los identificadores RF-05 y RF-34 se conservan del documento de especificación
+  del proyecto. El corte se concentra en la base de datos y la persistencia; la API y la
+  interfaz se completan en las semanas 2 y 3.
+</div>
+
+<h2>1. Plantilla 13.1 — Alcance del corte vertical</h2>
+
+<table class="tight">
+  <thead>
+  <tr>
+    <th style="width:25%">Elemento</th>
+    <th>Descripción del grupo</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td class="label">Funcionalidad priorizada</td>
+    <td>
+      <strong>RF-05 — Gestión de la ficha de mascota</strong> (prioridad 1) y
+      <strong>RF-34 — Consulta del catálogo de mascotas disponibles</strong> (prioridad 2).
+      Ambos comparten las tablas <em>mascota</em>, <em>fotografia</em> y <em>refugio</em>.
+    </td>
+  </tr>
+  <tr>
+    <td class="label">Actor principal</td>
+    <td>Refugio (RF-05). Adoptante, refugio y administrador (RF-34). El evaluador no participa en este corte.</td>
+  </tr>
+  <tr>
+    <td class="label">Capa de presentación prevista</td>
+    <td>
+      Formulario web de ficha de mascota para el refugio y catálogo web responsivo para el
+      adoptante. En la semana 1 la verificación se hace por consola y pruebas; la interfaz se
+      integra en la semana 3.
+    </td>
+  </tr>
+  <tr>
+    <td class="label">Endpoint(s) requeridos</td>
+    <td>
+      <span class="nowrap"><strong>POST</strong> /api/v1/mascotas</span> ·
+      <span class="nowrap"><strong>PUT</strong> /api/v1/mascotas/{id}</span> ·
+      <span class="nowrap"><strong>DELETE</strong> /api/v1/mascotas/{id}</span> ·
+      <span class="nowrap"><strong>GET</strong> /api/v1/mascotas?especie=&amp;tamano=&amp;edadMin=&amp;edadMax=&amp;pagina=</span>.
+      Contratos de API-06, API-07, API-08 y API-09 del documento de diseño.
+    </td>
+  </tr>
+  <tr>
+    <td class="label">Servicio(s) de aplicación o negocio</td>
+    <td>
+      <em>ServicioFichasMascota</em> (crear, actualizar, dar de baja) y
+      <em>ServicioCatalogo</em> (listar y filtrar). En la semana 2 aplican las reglas de
+      negocio; en este corte solo se prepara el contrato del repositorio.
+    </td>
+  </tr>
+  <tr>
+    <td class="label">Regla de negocio principal</td>
+    <td>
+      <strong>RN-22:</strong> una ficha está completa cuando tiene los campos obligatorios y
+      de 1 a 5 fotografías JPG/PNG; solo entonces pasa a <em>disponible</em>.
+      <strong>RN-03:</strong> solo un refugio verificado publica fichas.
+      <strong>RN-15:</strong> una ficha adoptada o dada de baja no aparece en el catálogo.
+    </td>
+  </tr>
+  <tr>
+    <td class="label">Repositorio o componente de persistencia</td>
+    <td>
+      <strong>RepositorioMascotas</strong> (<span class="nowrap">persistencia/repositorio.py</span>):
+      <span class="nowrap">crear_ficha</span>, <span class="nowrap">obtener_por_id</span>,
+      <span class="nowrap">actualizar_ficha</span>, <span class="nowrap">dar_de_baja</span> y
+      <span class="nowrap">listar_catalogo</span>. Todo el SQL queda encapsulado aquí.
+    </td>
+  </tr>
+  <tr>
+    <td class="label">Tabla(s) o colección(es) involucradas</td>
+    <td>
+      <strong>refugio</strong> (id, nombre, localidad, estado_verificacion),
+      <strong>mascota</strong> (id, refugio_id, datos de la ficha, estado, fecha_publicacion) y
+      <strong>fotografia</strong> (id, mascota_id, archivo, orden).
+    </td>
+  </tr>
+  <tr>
+    <td class="label">Validaciones mínimas</td>
+    <td>
+      Campos obligatorios y dominios cerrados (especie, tamaño, energía, experiencia, estado);
+      edad entre 0 y 300 meses; booleanos 0/1; 1 a 5 fotos JPG/PNG; máximo 5 fotos; orden único
+      por ficha; refugio existente y verificado; FK de refugio y de fotos; transición de estado
+      solo a <em>disponible</em> con foto y refugio verificado.
+    </td>
+  </tr>
+  <tr>
+    <td class="label">Qué sí se implementaría</td>
+    <td>
+      Esquema reproducible, carga inicial, repositorio, creación/lectura/actualización/baja de
+      fichas, catálogo con filtros y paginación, restricciones de integridad y 12 pruebas con
+      evidencia. Lectura desde una conexión nueva y rechazo de id inexistente.
+    </td>
+  </tr>
+  <tr>
+    <td class="label">Qué queda fuera del alcance</td>
+    <td>
+      Autenticación completa y matriz de permisos; interfaz web; almacenamiento binario de fotos;
+      motor de recomendaciones (RF-06 a RF-09); solicitudes y decisiones de adopción (RF-30,
+      RF-31); seguimiento posadopción; notificaciones; indicadores; chatbot y reconocimiento de
+      imágenes. La migración definitiva a PostgreSQL se hace en la semana 2.
+    </td>
+  </tr>
+  <tr>
+    <td class="label">Riesgo técnico principal</td>
+    <td>
+      Consistencia entre la ficha, sus fotografías y el estado de publicación. Se mitiga con
+      transacción (<em>BEGIN IMMEDIATE</em> + <em>ROLLBACK</em>), validación en el repositorio y
+      triggers en la base. El almacenamiento de fotos se limita a metadatos/ruta en este corte.
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>2. Priorización de los dos RF</h2>
+
+<table>
+  <tr>
+    <th style="width:5%">Orden</th>
+    <th style="width:24%">RF y resultado observable</th>
+    <th style="width:21%">Valor para el actor</th>
+    <th style="width:21%">Relevancia arquitectónica</th>
+    <th>Esfuerzo, riesgo o dependencia que explica el orden</th>
+  </tr>
+  <tr>
+    <td class="center"><strong>1</strong></td>
+    <td>
+      <strong>RF-05.</strong> El refugio crea, actualiza o da de baja una ficha de mascota y
+      obtiene su identificador y estado (<em>incompleta</em> o <em>disponible</em>).
+    </td>
+    <td>
+      Es la operación que produce el contenido del sistema: sin fichas no hay catálogo ni
+      recomendaciones. Alto valor para el refugio.
+    </td>
+    <td>
+      Define el modelo de escritura, la integridad referencial, la relación refugio–mascota–foto
+      y la regla de publicación. Es la base de los demás módulos.
+    </td>
+    <td>
+      No tiene dependencias funcionales. Esfuerzo medio por la validación de completitud y las
+      fotografías. Riesgo principal: dejar fichas a medias; se controla con transacción y triggers.
+    </td>
+  </tr>
+  <tr>
+    <td class="center"><strong>2</strong></td>
+    <td>
+      <strong>RF-34.</strong> El adoptante, el refugio o el administrador consultan una lista
+      paginada de mascotas disponibles, con filtros por especie, tamaño y edad, de la más antigua
+      a la más reciente.
+    </td>
+    <td>
+      Es la vía de selección tradicional y el punto de entrada del adoptante. Alto valor, pero
+      depende de que existan fichas publicadas.
+    </td>
+    <td>
+      Define el modelo de lectura, el orden estable, la paginación y los índices. Su desempeño se
+      vuelve crítico al crecer el catálogo.
+    </td>
+    <td>
+      Depende de RF-05: no se puede consultar lo que aún no se ha creado. Menor esfuerzo que
+      RF-05. Riesgo: degradación con 2.000 fichas; se mitiga con índices y prueba de carga en
+      semana 3.
+    </td>
+  </tr>
+</table>
+
+<p class="small">
+  <strong>Fuera del alcance de este corte:</strong> el motor de recomendaciones, las solicitudes
+  de adopción, el seguimiento posadopción, las notificaciones y los indicadores. Se retomarán
+  después de estabilizar la persistencia de las fichas y el catálogo.
+</p>
+
+<div class="page-break"></div>
+
+<h2>3. Matriz RF–RNF (ISO/IEC 25010:2023)</h2>
+
+<p class="small">
+  Cada RNF se asocia de forma explícita a por lo menos un RF. Los umbrales los define el equipo
+  según el contexto del proyecto; la norma orienta la característica y la subcaracterística, no
+  fija los valores. Se indica qué se verificó en la semana 1 y qué queda para las semanas 2 y 3.
+</p>
+
+<table>
+  <tr>
+    <th style="width:12%">RNF / RF asociados</th>
+    <th style="width:18%">Característica y subcaracterística ISO/IEC 25010:2023</th>
+    <th style="width:24%">Condición de prueba</th>
+    <th style="width:20%">Medida y umbral</th>
+    <th>Evidencia y semana de verificación</th>
+  </tr>
+  <tr>
+    <td><strong>RNF-05</strong><br>RF-05, RF-34</td>
+    <td><strong>Eficiencia de desempeño</strong> / Comportamiento temporal</td>
+    <td>
+      Entorno local documentado; 500 fichas activas y 50 usuarios concurrentes; 20 consultas
+      consecutivas al catálogo, con y sin filtros.
+    </td>
+    <td>
+      p95 ≤ 1 s por consulta; máximo ≤ 1,5 s; 0 errores de consulta.
+    </td>
+    <td>
+      <span class="partial">Parcial.</span> Semana 1: línea base con 8 fichas (0,53 ms promedio;
+      0,66 ms máximo). Semana 2: medición sobre la API. Semana 3: carga con 500 fichas.
+      Evidencia: <span class="nowrap">salida_pruebas.txt</span>, prueba 12.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>RNF-10</strong><br>RF-05, RF-34</td>
+    <td><strong>Seguridad</strong> / Integridad</td>
+    <td>
+      Matriz de entradas inválidas: tipo, rango, valor no permitido, refugio no verificado, ficha
+      sin foto, más de 5 fotos y FK rota. Verificar antes y después de cada intento.
+    </td>
+    <td>
+      100 % de las entradas inválidas se rechaza con ERR-004, ERR-006 o ERR-009 y
+      0 filas quedan persistidas; ninguna ficha incompleta aparece en el catálogo.
+    </td>
+    <td>
+      <span class="partial">Parcial.</span> Semana 1: 6 casos ejecutados (pruebas 2, 3, 5, 6, 9 y
+      10), todos rechazados. Semana 2: matriz completa sobre la API. Evidencia:
+      <span class="nowrap">salida_pruebas.txt</span>.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>RNF-08</strong><br>RF-05, RF-34</td>
+    <td><strong>Mantenibilidad</strong> / Capacidad de prueba</td>
+    <td>
+      Reemplazar el repositorio real por un doble en los servicios de la semana 2 y ejecutar una
+      prueba de resultado válido y otra de rechazo por cada operación, sin base real.
+    </td>
+    <td>
+      2 pruebas por operación (válida y de rechazo), repetibles; cobertura ≥ 70 % en los módulos
+      de reglas de negocio y servicios.
+    </td>
+    <td>
+      <span class="partial">Parcial.</span> Semana 1: contrato del repositorio definido y 12
+      pruebas directas. Semana 2: dobles de repositorio y cobertura. Evidencia:
+      <span class="nowrap">repositorio.py</span> y <span class="nowrap">salida_pruebas.txt</span>.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>RNF-07</strong><br>RF-34</td>
+    <td><strong>Flexibilidad</strong> / Escalabilidad</td>
+    <td>
+      Catálogo con 2.000 fichas activas y 5.000 adoptantes; agregar un refugio o una localidad
+      sin modificar código; consultas con filtros y paginación.
+    </td>
+    <td>
+      p95 ≤ 1 s; 0 cambios de código al incorporar un refugio o una localidad nuevos.
+    </td>
+    <td>
+      <span class="pending">Pendiente.</span> Semana 3: prueba de carga y revisión de índices.
+      No se declara cumplido en este corte.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>RNF-04</strong><br>RF-05, RF-34</td>
+    <td><strong>Seguridad</strong> / Confidencialidad</td>
+    <td>
+      Revisar las claves de la respuesta del catálogo y de la ficha pública: no debe aparecer
+      correo, teléfono, nombre completo ni dirección del adoptante.
+    </td>
+    <td>
+      0 campos personales en el 100 % de las respuestas del catálogo; solo nombre y localidad
+      del refugio.
+    </td>
+    <td>
+      <span class="partial">Parcial.</span> Semana 1: prueba 11, 0 campos personales en catálogo y ficha. Semana 2:
+      matriz de permisos por rol y endpoints. Evidencia:
+      <span class="nowrap">salida_pruebas.txt</span>.
+    </td>
+  </tr>
+</table>
+
+<div class="page-break"></div>
+
+<h2>4. Ficha RF–RNF del equipo</h2>
+
+<h3>4.1. Ficha de RF-05 — Gestión de la ficha de mascota</h3>
+<table>
+  <tr><th style="width:25%">Elemento</th><th>Respuesta del equipo</th></tr>
+  <tr>
+    <td class="label">Identificador y enunciado del RF</td>
+    <td><strong>RF-05.</strong> El sistema debe permitir al refugio crear, editar y dar de baja fichas de mascotas, con especie, raza aproximada, edad, tamaño, nivel de energía, historial de salud y comportamiento, experiencia requerida, aptitud para convivir con menores y otras mascotas, y de 1 a 5 fotografías.</td>
+  </tr>
+  <tr>
+    <td class="label">Actor y resultado esperado</td>
+    <td>Refugio. Obtiene el identificador de la ficha y su estado: <em>incompleta</em> si falta algún campo o fotografía, o <em>disponible</em> si cumple RN-22 y el refugio está verificado.</td>
+  </tr>
+  <tr>
+    <td class="label">Prioridad y justificación: valor, relevancia arquitectónica y dependencia</td>
+    <td><strong>Prioridad 1.</strong> Alto valor: produce el contenido que alimenta el catálogo y el motor de recomendaciones. Relevancia arquitectónica alta: fija el modelo de escritura, la integridad referencial y la relación refugio–mascota–foto. No tiene dependencias funcionales; su esfuerzo es medio por la validación de completitud y las fotografías.</td>
+  </tr>
+  <tr>
+    <td class="label">RNF asociados e identificadores</td>
+    <td>RNF-04 (Seguridad / confidencialidad), RNF-05 (Eficiencia de desempeño / comportamiento temporal), RNF-08 (Mantenibilidad / capacidad de prueba) y RNF-10 (Seguridad / integridad).</td>
+  </tr>
+  <tr>
+    <td class="label">Característica y subcaracterística ISO/IEC 25010</td>
+    <td>
+      Eficiencia de desempeño → comportamiento temporal; Seguridad → integridad y
+      confidencialidad; Mantenibilidad → capacidad de prueba.
+    </td>
+  </tr>
+  <tr>
+    <td class="label">Condición, medida y umbral de cada RNF</td>
+    <td>
+      <strong>RNF-05:</strong> 500 fichas y 50 usuarios; creación y lectura p95 ≤ 1 s.
+      <strong>RNF-10:</strong> 100 % de entradas inválidas rechazadas y 0 filas persistidas.
+      <strong>RNF-08:</strong> 2 pruebas por operación (válida y rechazo), cobertura ≥ 70 %.
+      <strong>RNF-04:</strong> 0 datos personales en la ficha pública.
+    </td>
+  </tr>
+  <tr>
+    <td class="label">Prueba, evidencia y semana de verificación</td>
+    <td>
+      Semana 1: pruebas 1, 2, 3, 5, 6, 8, 9, 10 y 11 de
+      <span class="nowrap">salida_pruebas.txt</span>. Semana 2: API, autenticación por rol y
+      pruebas de servicio con doble del repositorio. Semana 3: integración con la interfaz.
+    </td>
+  </tr>
+  <tr>
+    <td class="label">Datos y operaciones de persistencia</td>
+    <td>
+      Tablas <strong>refugio</strong>, <strong>mascota</strong> y <strong>fotografia</strong>.
+      Operaciones: <span class="nowrap">crear_ficha</span>, <span class="nowrap">obtener_por_id</span>,
+      <span class="nowrap">actualizar_ficha</span> y <span class="nowrap">dar_de_baja</span>.
+    </td>
+  </tr>
+  <tr>
+    <td class="label">Resultado de las pruebas de semana 1 y pendientes</td>
+    <td>
+      <span class="pass">12/12 pruebas superadas.</span> Crear y leer desde conexión nueva,
+      rechazo de refugio no verificado, datos inválidos, FK rota, ficha incompleta, más de 5 fotos
+      y triggers de publicación. Pendiente: autenticación, fotos binarias, actualización campo a
+      campo, pruebas de servicio y migración a PostgreSQL.
+    </td>
+  </tr>
+</table>
+
+<h3 class="page-break">4.2. Ficha de RF-34 — Consulta del catálogo de mascotas disponibles</h3>
+<table>
+  <tr><th style="width:25%">Elemento</th><th>Respuesta del equipo</th></tr>
+  <tr>
+    <td class="label">Identificador y enunciado del RF</td>
+    <td><strong>RF-34.</strong> Cualquier usuario autenticado, salvo el evaluador, puede listar las mascotas en estado disponible, ordenadas por fecha de publicación (la más antigua primero) y filtrar por especie, tamaño y rango de edad. El catálogo no muestra puntaje, explicación ni riesgo.</td>
+  </tr>
+  <tr>
+    <td class="label">Actor y resultado esperado</td>
+    <td>Adoptante, refugio y administrador. Obtienen una lista paginada de 20 fichas resumidas por página, con id, nombre, especie, tamaño, edad, fecha de publicación, foto principal y refugio (nombre y localidad).</td>
+  </tr>
+  <tr>
+    <td class="label">Prioridad y justificación: valor, relevancia arquitectónica y dependencia</td>
+    <td><strong>Prioridad 2.</strong> Alto valor para el adoptante: es la vía de selección tradicional. Relevancia arquitectónica media-alta: define el modelo de lectura, el orden estable, la paginación y los índices. Depende de RF-05, porque no se puede consultar una ficha que aún no existe; por eso se implementa después.</td>
+  </tr>
+  <tr>
+    <td class="label">RNF asociados e identificadores</td>
+    <td>RNF-04 (Seguridad / confidencialidad), RNF-05 (Eficiencia de desempeño / comportamiento temporal), RNF-07 (Flexibilidad / escalabilidad), RNF-08 (Mantenibilidad / capacidad de prueba) y RNF-10 (Seguridad / integridad).</td>
+  </tr>
+  <tr>
+    <td class="label">Característica y subcaracterística ISO/IEC 25010</td>
+    <td>
+      Eficiencia de desempeño → comportamiento temporal; Flexibilidad → escalabilidad;
+      Seguridad → confidencialidad e integridad; Mantenibilidad → capacidad de prueba.
+    </td>
+  </tr>
+  <tr>
+    <td class="label">Condición, medida y umbral de cada RNF</td>
+    <td>
+      <strong>RNF-05:</strong> 500 fichas, 50 usuarios, p95 ≤ 1 s. <strong>RNF-07:</strong> 2.000
+      fichas y 5.000 adoptantes, p95 ≤ 1 s, sin cambios de código al agregar refugio o localidad.
+      <strong>RNF-04:</strong> 0 datos personales en la respuesta. <strong>RNF-10:</strong> 100 %
+      de filtros inválidos rechazados y 0 resultados incorrectos.
+    </td>
+  </tr>
+  <tr>
+    <td class="label">Prueba, evidencia y semana de verificación</td>
+    <td>
+      Semana 1: pruebas 4, 7, 11 y 12 de <span class="nowrap">salida_pruebas.txt</span>
+      (id inexistente, orden, filtros, paginación, datos personales y línea base de tiempos).
+      Semana 2: endpoint GET /mascotas. Semana 3: prueba de carga con 2.000 fichas e interfaz.
+    </td>
+  </tr>
+  <tr>
+    <td class="label">Datos y operaciones de persistencia</td>
+    <td>
+      Tablas <strong>mascota</strong>, <strong>fotografia</strong> y <strong>refugio</strong>.
+      Operación: <span class="nowrap">listar_catalogo(especie, tamano, edad_min, edad_max, pagina, por_pagina)</span>.
+      Índices: <span class="nowrap">idx_mascota_catalogo</span> y <span class="nowrap">idx_mascota_filtros</span>.
+    </td>
+  </tr>
+  <tr>
+    <td class="label">Resultado de las pruebas de semana 1 y pendientes</td>
+    <td>
+      <span class="pass">Catálogo correcto:</span> total 4, orden [Luna, Rocky, Milo, Nala],
+      perros 3, pequeños 1, página 2 con 1 elemento. Línea base: 0,53 ms promedio y 0,66 ms
+      máximo en 20 consultas. Pendiente: prueba de carga con 2.000 fichas, endpoint, interfaz y
+      verificación de índices en PostgreSQL.
+    </td>
+  </tr>
+</table>
+
+<div class="page-break"></div>
+
+<h2>5. Persistencia: modelo, operaciones y resultados</h2>
+
+<h3>5.1. Modelo mínimo de datos</h3>
+<table>
+  <tr>
+    <th style="width:14%">Entidad</th>
+    <th style="width:12%">Clave</th>
+    <th style="width:40%">Campos principales</th>
+    <th style="width:18%">Relación</th>
+    <th>RF</th>
+  </tr>
+  <tr>
+    <td><strong>refugio</strong></td>
+    <td>id (PK)</td>
+    <td>nombre, localidad, estado_verificacion (pendiente / verificado / rechazado)</td>
+    <td>1 : N con mascota</td>
+    <td>RF-05, RF-34</td>
+  </tr>
+  <tr>
+    <td><strong>mascota</strong></td>
+    <td>id (PK)</td>
+    <td>
+      refugio_id (FK), nombre, raza, especie, edad_meses, tamano, nivel_energia,
+      experiencia_requerida, apta_con_menores, apta_con_mascotas, historial_salud,
+      historial_comportamiento, estado (incompleta / disponible / adoptada / baja),
+      fecha_publicacion
+    </td>
+    <td>N : 1 con refugio; 1 : N con fotografia</td>
+    <td>RF-05, RF-34</td>
+  </tr>
+  <tr>
+    <td><strong>fotografia</strong></td>
+    <td>id (PK)</td>
+    <td>mascota_id (FK), archivo, orden (1 a 5)</td>
+    <td>N : 1 con mascota; UNIQUE (mascota_id, orden)</td>
+    <td>RF-05, RF-34</td>
+  </tr>
+</table>
+
+<p class="small">
+  <strong>Cambios frente al modelo previo:</strong> no se agregan entidades nuevas. Se especializa
+  <em>mascota</em> con <em>estado</em> y <em>fecha_publicacion</em>, y <em>fotografia</em> con
+  <em>orden</em> único. Se conservan las relaciones del modelo del segundo corte. En la base local
+  las fotos se guardan como ruta; el binario se incorporará en la semana 2.
+</p>
+
+<h3>5.2. Contrato del repositorio</h3>
+<table>
+  <tr>
+    <th style="width:28%">Operación</th>
+    <th style="width:24%">Entrada</th>
+    <th style="width:30%">Resultado</th>
+    <th>Uso</th>
+  </tr>
+  <tr>
+    <td><span class="nowrap">crear_ficha</span></td>
+    <td>refugio_id, ficha de RN-22, 0–5 fotos</td>
+    <td>id real; estado incompleta o disponible</td>
+    <td>RF-05: persistir y devolver el identificador.</td>
+  </tr>
+  <tr>
+    <td><span class="nowrap">obtener_por_id</span></td>
+    <td>mascota_id</td>
+    <td>ficha con refugio y fotos, o None</td>
+    <td>RF-05: verificar el registro; representar ausencia.</td>
+  </tr>
+  <tr>
+    <td><span class="nowrap">actualizar_ficha</span></td>
+    <td>mascota_id, refugio_id, cambios, fotos opcionales</td>
+    <td>ficha actualizada y estado recalculado</td>
+    <td>RF-05: editar y volver a publicar.</td>
+  </tr>
+  <tr>
+    <td><span class="nowrap">dar_de_baja</span></td>
+    <td>mascota_id, refugio_id</td>
+    <td>baja lógica (estado = baja)</td>
+    <td>RF-05: retirar la ficha del catálogo.</td>
+  </tr>
+  <tr>
+    <td><span class="nowrap">listar_catalogo</span></td>
+    <td>especie, tamano, edad_min, edad_max, pagina, por_pagina</td>
+    <td>total, pagina, porPagina, mascotas</td>
+    <td>RF-34: consulta paginada y filtrada.</td>
+  </tr>
+</table>
+
+<h3>5.3. Reglas de integridad y separación de capas</h3>
+<div class="two-col">
+  <div>
+    <ul>
+      <li><strong>FK</strong> refugio → mascota y mascota → fotografia (cascada en fotos).</li>
+      <li><strong>CHECK</strong> de dominios: especie, tamaño, energía, experiencia, estado y edad 0–300.</li>
+      <li><strong>UNIQUE</strong> (mascota_id, orden) y máximo 5 fotos con trigger.</li>
+      <li><strong>Triggers</strong>: disponible exige foto y refugio verificado (RN-03/RN-22).</li>
+    </ul>
+  </div>
+  <div>
+    <ul>
+      <li><strong>Transacción</strong>: <em>BEGIN IMMEDIATE</em>; ante error, <em>ROLLBACK</em>.</li>
+      <li><strong>Repositorio</strong>: único componente con SQL; la API y los servicios no consultan directamente.</li>
+      <li><strong>Catálogo</strong>: solo fichas disponibles de refugios verificados; sin datos personales del adoptante (RN-24).</li>
+      <li><strong>Pendiente semana 2</strong>: decidir quién confirma la transacción en la API y cómo se liberan las conexiones.</li>
+    </ul>
+  </div>
+</div>
+
+<h3 class="page-break">5.4. Datos de prueba y estado inicial</h3>
+<table>
+  <tr>
+    <th>Mascota</th><th>Refugio</th><th>Especie / tamaño</th><th>Estado</th><th>¿Catálogo?</th><th>Motivo</th>
+  </tr>
+  <tr><td>1 — Luna</td><td>1 — Patitas (verificado)</td><td>perro / grande</td><td>disponible</td><td class="pass">Sí</td><td>Ficha completa.</td></tr>
+  <tr><td>2 — Milo</td><td>1 — Patitas (verificado)</td><td>gato / pequeño</td><td>disponible</td><td class="pass">Sí</td><td>Ficha completa.</td></tr>
+  <tr><td>3 — Rocky</td><td>1 — Patitas (verificado)</td><td>perro / mediano</td><td>disponible</td><td class="pass">Sí</td><td>Ficha completa.</td></tr>
+  <tr><td>4 — Nube</td><td>2 — Colitas (pendiente)</td><td>gato / pequeño</td><td>disponible</td><td class="pending">No</td><td>Refugio no verificado.</td></tr>
+  <tr><td>5 — Toby</td><td>1 — Patitas (verificado)</td><td>perro / pequeño</td><td>incompleta</td><td class="pending">No</td><td>Sin fotografía.</td></tr>
+  <tr><td>6 — Canela</td><td>1 — Patitas (verificado)</td><td>perro / mediano</td><td>adoptada</td><td class="pending">No</td><td>Ya adoptada.</td></tr>
+</table>
+<p class="small">
+  Orden esperado del catálogo con los datos iniciales: <strong>Luna (2026-10-01), Rocky (2026-10-03),
+  Milo (2026-10-05)</strong>. La prueba 1 agrega a Nala (id 7, 2026-10-10), por lo que la prueba 7 obtiene
+  <strong>[Luna, Rocky, Milo, Nala]</strong>. La fecha de referencia del corte es 2026-11-04.
+</p>
+
+<h3>5.5. Resultados de las pruebas de persistencia</h3>
+<table>
+  <tr><th style="width:5%">#</th><th style="width:57%">Prueba ejecutada</th><th>Resultado</th></tr>
+  <tr><td class="center">1</td><td>Crear ficha en refugio verificado y leerla desde una conexión nueva.</td><td class="pass">PASA — id 7, disponible, 2 fotos.</td></tr>
+  <tr><td class="center">2</td><td>Rechazar ficha de refugio no verificado.</td><td class="pass">PASA — ERR-009; 0 filas nuevas.</td></tr>
+  <tr><td class="center">3</td><td>Rechazar datos inválidos (especie no permitida).</td><td class="pass">PASA — ERR-004; 0 filas nuevas.</td></tr>
+  <tr><td class="center">4</td><td>Consultar un identificador inexistente.</td><td class="pass">PASA — devuelve None.</td></tr>
+  <tr><td class="center">5</td><td>Violar la FK de refugio.</td><td class="pass">PASA — FOREIGN KEY constraint failed.</td></tr>
+  <tr><td class="center">6</td><td>Ficha sin fotos queda incompleta y fuera del catálogo.</td><td class="pass">PASA — id 8, estado incompleta.</td></tr>
+  <tr><td class="center">7</td><td>Catálogo: solo disponibles/verificados; orden, filtros y paginación.</td><td class="pass">PASA — total 4, orden [1,3,2,7].</td></tr>
+  <tr><td class="center">8</td><td>Actualizar ficha incompleta, publicarla y darla de baja.</td><td class="pass">PASA — incompleta → disponible → baja.</td></tr>
+  <tr><td class="center">9</td><td>Rechazar más de 5 fotografías.</td><td class="pass">PASA — repositorio y trigger.</td></tr>
+  <tr><td class="center">10</td><td>Triggers de publicación: refugio pendiente y ficha sin foto.</td><td class="pass">PASA — ambos rechazos.</td></tr>
+  <tr><td class="center">11</td><td>El catálogo y la ficha no exponen datos personales.</td><td class="pass">PASA — 0 campos personales.</td></tr>
+  <tr><td class="center">12</td><td>20 consultas consecutivas al catálogo.</td><td class="pass">PASA — 0,53 ms promedio; 0,66 ms máximo.</td></tr>
+</table>
+
+<p class="small">
+  <strong>Resumen:</strong> 12/12 pruebas superadas. Python 3.12.10 y SQLite 3.49.1.
+  Evidencia completa: <span class="nowrap">evidencias/salida_pruebas.txt</span> y
+  <span class="nowrap">evidencias/prueba.db</span>. La medición de tiempos es una línea base
+  con 8 fichas; no sustituye la prueba de carga de RNF-05.
+</p>
+
+<div class="page-break"></div>
+
+<h2>6. Reproducción, evidencia y cierre</h2>
+
+<h3>6.1. Requisitos y comandos exactos</h3>
+<div class="two-col">
+  <div>
+    <p><strong>Requisitos</strong></p>
+    <ul>
+      <li>Python 3.12.10 (compatible con 3.10 o superior).</li>
+      <li>SQLite 3.49.1 incluido en Python; sin servidor ni dependencias externas.</li>
+      <li>Sin credenciales: la base local no usa usuario ni contraseña.</li>
+    </ul>
+    <p class="small">
+      La base local se usa para que cualquier integrante reproduzca el corte sin instalar
+      PostgreSQL. El esquema conserva FK, CHECK, UNIQUE, índices y triggers; la migración a
+      PostgreSQL (ADR-03/ADR-10) se hace en la semana 2.
+    </p>
+  </div>
+  <div>
+    <p><strong>Comandos (PowerShell)</strong></p>
+    <div class="code">cd "C:\...\corte_vertical_sem13\persistencia"
+$env:PYTHONUTF8 = "1"
+$env:PYTHONIOENCODING = "utf-8"
+python prueba_persistencia.py
+python demo_consulta.py</div>
+    <p class="small">La prueba recrea la base, ejecuta los 12 casos y escribe la evidencia.</p>
+  </div>
+</div>
+
+<h3>6.2. Salida esperada y ubicación de evidencias</h3>
+<table>
+  <tr><th style="width:32%">Evidencia</th><th>Ubicación / contenido</th></tr>
+  <tr><td>Resultado de pruebas</td><td><span class="nowrap">evidencias/salida_pruebas.txt</span> — 12/12 PASA y tiempos.</td></tr>
+  <tr><td>Base reproducible</td><td><span class="nowrap">evidencias/prueba.db</span> — recreada por <span class="nowrap">schema.sql</span> + <span class="nowrap">seed.sql</span>.</td></tr>
+  <tr><td>Consulta manual</td><td><span class="nowrap">evidencias/salida_consulta.txt</span> — catálogo por especie y ficha 1.</td></tr>
+  <tr><td>Código de persistencia</td><td><span class="nowrap">persistencia/repositorio.py</span> y <span class="nowrap">persistencia/schema.sql</span>.</td></tr>
+  <tr><td>Instrucciones completas</td><td><span class="nowrap">README.md</span> del corte vertical.</td></tr>
+  <tr><td>Plantilla editable</td><td><span class="nowrap">plantilla/plantilla_13_1.html</span>; el PDF es esta versión.</td></tr>
+</table>
+
+<h3>6.3. Checklist de revisión</h3>
+<table>
+  <tr><th style="width:65%">Criterio de revisión</th><th style="width:10%">Cumple</th><th>Evidencia</th></tr>
+  <tr><td>Hay dos RF identificados, priorizados y justificados.</td><td class="center pass">Sí</td><td>Sección 2.</td></tr>
+  <tr><td>Cada RF se vincula con sus RNF e ISO/IEC 25010.</td><td class="center pass">Sí</td><td>Sección 3 y fichas 4.1/4.2.</td></tr>
+  <tr><td>Los RNF incluyen condición, medida, umbral y verificación.</td><td class="center pass">Sí</td><td>Sección 3; lo pendiente está marcado.</td></tr>
+  <tr><td>Los datos y operaciones cubren ambos RF.</td><td class="center pass">Sí</td><td>Secciones 4 y 5.</td></tr>
+  <tr><td>La base y los datos de prueba pueden recrearse.</td><td class="center pass">Sí</td><td><span class="nowrap">schema.sql</span>, <span class="nowrap">seed.sql</span> y comando de 6.1.</td></tr>
+  <tr><td>Se demuestra lectura, escritura y persistencia real.</td><td class="center pass">Sí</td><td>Pruebas 1, 6, 7 y 8; conexión nueva.</td></tr>
+  <tr><td>El README indica requisitos y pasos exactos de prueba.</td><td class="center pass">Sí</td><td><span class="nowrap">README.md</span> y sección 6.</td></tr>
+  <tr><td>Se distingue lo probado de lo pendiente para semanas 2 y 3.</td><td class="center pass">Sí</td><td>Secciones 3, 4 y 5.5; pendientes explícitos.</td></tr>
+</table>
+
+<h3>6.4. Cierre</h3>
+<p>
+  El corte construye primero <strong>RF-05</strong> porque produce las fichas que alimentan el
+  catálogo y fija las reglas de integridad; luego <strong>RF-34</strong>, que lee esas fichas y
+  permite verificar el registro desde el punto de vista del adoptante. La calidad esperada se
+  concentra en integridad de datos, comportamiento temporal y capacidad de prueba. La evidencia
+  que permite verificarla es la base recreable, el repositorio con SQL encapsulado, las 12 pruebas
+  ejecutadas y la salida con tiempos. La semana 2 continúa sobre estas mismas decisiones: API,
+  reglas de negocio, autenticación por rol y pruebas con dobles del repositorio.
+</p>
+
+</body>
+</html>
