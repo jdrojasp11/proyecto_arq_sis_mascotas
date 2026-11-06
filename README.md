@@ -6,9 +6,10 @@ Proyecto: **Sistema de Apoyo a la Decisión para la Adopción Responsable de Mas
 
 ## Contexto
 
-Este repositorio corresponde a la **práctica de ingeniería** de Arquitectura de
-Sistemas I. El proyecto es un sistema de apoyo a la **adopción responsable de
-mascotas**: los refugios registran las fichas de los animales que tienen en
+Este repositorio documenta el **corte vertical de la semana 13** de la asignatura
+**Arquitectura de Sistemas I**. El caso de estudio es un sistema de apoyo a la
+**adopción responsable de mascotas**, desarrollado en la asignatura **Práctica de
+Ingeniería**: los refugios registran las fichas de los animales que tienen en
 adopción y los adoptantes consultan ese catálogo. En esta entrega no se
 implementa la inteligencia artificial: se prepara la base de datos y la capa de
 persistencia de dos funciones básicas.
