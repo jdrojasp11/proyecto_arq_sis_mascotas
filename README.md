@@ -1,6 +1,6 @@
 # Corte vertical Semana 13 — Persistencia de RF-05 y RF-34
 
-Repositorio: <https://github.com/jdrojasp11/practica-ingenieria-mascotas>
+Repositorio: <https://github.com/jdrojasp11/proyecto_arq_sis_mascotas>
 
 Proyecto: **Sistema de Apoyo a la Decisión para la Adopción Responsable de Mascotas mediante Inteligencia Artificial**.
 
@@ -45,7 +45,7 @@ La fuente editable está en `plantilla/plantilla_13_1.tex` para compilar en Over
 ## 2. Estructura
 
 ```text
-practica-ingenieria-mascotas/
+proyecto_arq_sis_mascotas/
 ├── persistencia/
 │   ├── schema.sql                 # tablas, índices, CHECK, FK y triggers
 │   ├── seed.sql                   # estado inicial conocido
