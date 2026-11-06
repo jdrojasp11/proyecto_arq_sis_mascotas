@@ -44,7 +44,7 @@ La fuente editable está en `plantilla/plantilla_13_1.tex` para compilar en Over
 ## 2. Estructura
 
 ```text
-corte_vertical_sem13/
+practica-ingenieria-mascotas/
 ├── persistencia/
 │   ├── schema.sql                 # tablas, índices, CHECK, FK y triggers
 │   ├── seed.sql                   # estado inicial conocido
@@ -64,10 +64,10 @@ corte_vertical_sem13/
 
 ## 3. Cómo reproducir la verificación
 
-Desde PowerShell, en la carpeta `persistencia`:
+Desde PowerShell, en la raíz del repositorio:
 
 ```powershell
-cd "C:\Users\user\Downloads\esta es la teare\corte_vertical_sem13\persistencia"
+cd persistencia
 $env:PYTHONUTF8 = "1"
 $env:PYTHONIOENCODING = "utf-8"
 python prueba_persistencia.py
